@@ -1,0 +1,78 @@
+﻿@model IEnumerable<mvcnew.Models.EMPDATA>
+@{
+    ViewBag.Title = "EmpDeptnoDate";
+}
+
+<h2>EmpDeptnoDate</h2>
+
+@using (Html.BeginForm("EmpDeptnoSubmit", "Databse"))
+{
+    <table>
+        <tr>
+            <td>@Html.RadioButton("rdbHdDeptno", "hiredate", new { onclick = "func1();" })Hiredate</td>
+            <td>@Html.TextBox("txtStartDate", Request["txtStartDate"], new { @placeholder = "Start Date", @disabled = "true" })</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>@Html.TextBox("txtEndDate", Request["txtEndDate"], new { @placeholder = "End Date", @disabled = "true" })</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>@Html.RadioButton("rdbHdDeptno", "deptno", new { onclick = "func2();" })Dept Name</td>
+            <td>@Html.DropDownList("ddlDeptno", new SelectList(ViewBag.DL, "Deptno", "Dname", ViewBag.Dept), "--Select--", new { @disabled = "true" })</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input id="Submit1" type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+}
+<script>
+    function func1()
+    {
+        document.getElementById("txtStartDate").disabled = false;
+        document.getElementById("txtEndDate").disabled = false;
+         document.getElementById("ddlDeptno").disabled = true;
+    }
+    function func2()
+    {
+        document.getElementById("ddlDeptno").disabled = false;
+        document.getElementById("txtStartDate").disabled = true;
+        document.getElementById("txtEndDate").disabled = true;
+    }
+</script>
+@if (Model != null)
+{
+    <table border="1">
+        <tr>
+            <th>Empno</th>
+            <th>Ename</th>
+            <th>Job</th>
+            <th>Manager</th>
+            <th>Hiredate</th>
+            <th>Sal</th>
+            <th>Comm</th>
+            <th>Deptno</th>
+        </tr>
+        @foreach (var row in Model)
+        {
+            <tr>
+                <td>@row.EMPNO</td>
+                <td>@row.ENAME</td>
+                <td>@row.JOB</td>
+                <td>@row.MGR</td>
+                <td>@row.HIREDATE</td>
+                <td>@row.SAL</td>
+                <td>@row.COMM</td>
+                <td>@row.DEPTNO</td>
+            </tr>
+        }
+    </table>
+}
+

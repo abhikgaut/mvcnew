@@ -1,0 +1,53 @@
+﻿@model mvcnew.Models.EMPDATA
+@{
+    ViewBag.Title = "IndexDB";
+}
+
+<h2>IndexDB</h2>
+@using (Html.BeginForm())
+{ 
+<table>
+    <tr>
+        <td>Emo no:</td>
+        <td>@Html.TextBoxFor(a => a.EMPNO)</td>
+    </tr>
+    <tr>
+        <td>Emo name:</td>
+        <td>@Html.TextBoxFor(a => a.ENAME)</td>
+    </tr>
+    <tr>
+        <td>job:</td>
+        <td>@Html.TextBoxFor(a => a.JOB)</td>
+    </tr>
+    <tr>
+        <td>manager:</td>
+        <td>@Html.TextBoxFor(a => a.MGR)</td>
+    </tr>
+    <tr>
+        <td>hiredate:</td>
+        <td>@Html.TextBoxFor(a => a.HIREDATE)</td>
+    </tr>
+    <tr>
+        <td>salary:</td>
+        <td>@Html.TextBoxFor(a => a.SAL)</td>
+    </tr>
+    <tr>
+        <td>commision:</td>
+        <td>@Html.TextBoxFor(a => a.COMM)</td>
+    </tr>
+    <tr>
+        <td>dept no:</td>
+        <td>@Html.TextBoxFor(a => a.DEPTNO)</td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="insert"></td>
+        <td></td>
+    </tr>
+</table>
+    if (ViewBag.msg != null)
+    { 
+        <h3>
+            @ViewBag.msg
+        </h3>
+    }
+}

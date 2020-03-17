@@ -1,0 +1,13 @@
+﻿@model IEnumerable<mvcnew.Models.emp>
+@{
+    ViewBag.Title = "sendList";
+}
+
+<h2>sendList</h2>
+<table>
+    <tr><td>Emp no:</td><td>Emp name:</td><td>Emp salary:</td></tr>
+@foreach (var item in Model)
+{ 
+<tr><td>@item.empno</td><td>@item.ename</td><td>@item.salary</td></tr>
+}
+</table>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<mvcnew.Models.EMPDATA>
+@{
+    ViewBag.Title = "getEmpno";
+}
+
+<h2>getEmpno</h2>
+@using (Html.BeginForm("getdataEmp","databse"))
+{ 
+<table>
+
+    <tr>
+        <td>enter the employee no:</td>
+        <td>@Html.DropDownList("ddleno", new SelectList(ViewBag.En, "empno", "ename"), "Select" )</td>
+    </tr>
+    <tr><input type="submit" value="submit" , onclick = "return func1();"/></tr>
+</table>
+<h3>
+    @if (ViewBag.m != null) {
+            @ViewBag.m
+         }
+</h3>
+}
+<script>
+    function func1()
+    {
+        var eno = document.getElementById("ddleno").value;
+        var con = confirm("do you want to delete record of " + eno);
+        if (con == true)
+            return true;
+        else
+            return false;
+    }
+</script>

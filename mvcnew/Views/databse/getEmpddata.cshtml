@@ -1,0 +1,52 @@
+﻿@model IEnumerable<mvcnew.Models.EMPDATA>
+@{
+    ViewBag.Title = "getEmpddata";
+}
+
+<h2>getEmpddata</h2>
+@using (Html.BeginForm("getdata", "databse"))
+{
+    <table>
+
+        <tr>
+            <td>enter the dept no:</td>
+            <td>@Html.DropDownList("ddldno", new SelectList(ViewBag.L, "Deptno", "Dname",ViewBag.dnum), "Select", new { onblur = "func1();" })</td>
+        </tr>
+    </table>
+    if (Model != null)
+    {
+        <table>
+            <tr>
+                <td>Emp no</td>
+                <td>Emp name</td>
+                <td>job</td>
+                <td>manager</td>
+                <td>hiredate</td>
+                <td>salary</td>
+                <td>commission</td>
+                <td>dept no</td>
+            </tr>
+            @foreach (var E in Model)
+            {
+                <tr>
+                    <td>@E.EMPNO</td>
+                    <td>@E.ENAME</td>
+                    <td>@E.JOB</td>
+                    <td>@E.MGR</td>
+                    <td>@E.HIREDATE</td>
+                    <td>@E.SAL</td>
+                    <td>@E.COMM</td>
+                    <td>@E.DEPTNO</td>
+                </tr>
+            }
+        </table>
+    }
+}
+    <script>
+        function func1()
+        {
+            var dno = document.getElementById("ddldno").value;
+            window.location.href = "/databse/getdata?d=" + dno;
+        }
+    </script>
+

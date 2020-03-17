@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "unbound";
+}
+
+<h2>unbound</h2>
+@using (Html.BeginForm("showResult","unbound"))
+{ 
+<table>
+    <tr>
+        <td>empno:</td>
+        <td>@Html.TextBox("txtEmpno")</td>
+    </tr>
+    <tr>
+        <td>emp name:</td>
+        <td>@Html.TextBox("txtEname")</td>
+    </tr>
+    <tr>
+        <td>salary:</td>
+        <td>@Html.TextBox("txtSalary")</td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="submit"></td>
+        <td></td>
+    </tr>
+</table>
+}
+

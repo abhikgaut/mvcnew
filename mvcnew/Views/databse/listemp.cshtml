@@ -1,0 +1,45 @@
+﻿@model IEnumerable<mvcnew.Models.EMPDATA>
+@{
+    ViewBag.Title = "listemp";
+}
+
+<h2>listemp</h2>
+@using (Html.BeginForm("listShow", "databse"))
+{
+if (Model != null)
+{
+<table border="1">
+    <tr>
+        <td><input id="Submit1" type="submit" value="Submit" /></td>
+    </tr>
+    <tr>
+        <th></th>
+        <th>Empno</th>
+        <th>Ename</th>
+        <th>Job</th>
+        <th>Manager</th>
+        <th>Hiredate</th>
+        <th>Sal</th>
+        <th>Comm</th>
+        <th>Deptno</th>
+    </tr>
+    @foreach (var row in Model)
+    {
+        <tr>
+            <td>@Html.RadioButton("eid", row.EMPNO)</td>
+            <td>@row.EMPNO</td>
+            <td>@row.ENAME</td>
+            <td>@row.JOB</td>
+            <td>@row.MGR</td>
+            <td>@row.HIREDATE</td>
+            <td>@row.SAL</td>
+            <td>@row.COMM</td>
+            <td>@row.DEPTNO</td>
+        </tr>
+
+    }
+</table>
+}
+}
+
+

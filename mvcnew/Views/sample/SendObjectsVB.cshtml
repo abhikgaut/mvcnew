@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "SendObjectsVB";
+}
+
+<h2>SendObjectsVB</h2>
+@foreach (var item in ViewBag.xyz)
+{ 
+    <table>
+        <tr><td>Emp no:</td><td>@item.empno</td></tr>
+        <tr><td>Emp name:</td><td>@item.ename</td></tr>
+        <tr><td>Emp salary:</td><td>@item.salary</td></tr>
+    </table>
+}
